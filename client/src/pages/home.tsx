@@ -76,9 +76,6 @@ export default function Home() {
                 A modern software platform to automate expense tracking, receipt matching, and tax-ready records — all in one place.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 shadow-lg">
-                  Start tracking now
-                </Button>
                 <Button
                   variant="outline"
                   onClick={() => scrollToSection("how-it-works")}
@@ -290,6 +287,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Plans Section */}
+      <section id="plans" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <FadeInSection>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Choose how you work
+              </h2>
+            </FadeInSection>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <FadeInSection delay={0.1}>
+              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Solo Mode</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  For freelancers, consultants, and self-employed pros. Automate your expenses, stay tax-ready, and never lose a receipt.
+                </p>
+                <Button className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105">
+                  Join early access
+                </Button>
+              </div>
+            </FadeInSection>
+            <FadeInSection delay={0.2}>
+              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Accountant Mode</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  For bookkeepers and accounting teams managing multiple clients. Includes bulk tools, client switching, and smart automation.
+                </p>
+                <Button className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105">
+                  Request early access
+                </Button>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -298,9 +332,6 @@ export default function Home() {
               Start automating your expenses today
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button className="bg-white hover:bg-gray-100 text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 shadow-lg">
-                Start tracking now
-              </Button>
               <Button 
                 variant="outline"
                 className="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
@@ -347,6 +378,14 @@ export default function Home() {
                     className="hover:text-primary transition-colors"
                   >
                     How it works
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection("plans")}
+                    className="hover:text-primary transition-colors"
+                  >
+                    How You Work
                   </button>
                 </li>
                 <li>

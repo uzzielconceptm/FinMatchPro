@@ -51,8 +51,14 @@ export function Navigation({ className }: NavigationProps) {
             >
               How it works
             </button>
+            <button
+              onClick={() => scrollToSection("plans")}
+              className="text-gray-600 hover:text-primary transition-colors"
+            >
+              How You Work
+            </button>
             <Button className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105">
-              Start tracking now
+              Get early access
             </Button>
           </div>
         </div>

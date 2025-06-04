@@ -352,9 +352,12 @@ export default function Home() {
               </Button>
               <Button 
                 variant="link"
+                asChild
                 className="text-white hover:text-gray-200 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 underline"
               >
-                Talk to an expert
+                <a href="https://calendly.com/finmatch-service/consultation" target="_blank" rel="noopener noreferrer">
+                  Talk to an expert
+                </a>
               </Button>
             </div>
           </FadeInSection>

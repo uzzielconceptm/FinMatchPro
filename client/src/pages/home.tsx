@@ -344,11 +344,11 @@ export default function Home() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button 
-                onClick={() => setShowSignupForm(true)}
+                onClick={() => setShowSubscriptionForm(true)}
                 variant="outline"
                 className="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
               >
-                Start Free Trial
+                Get early access
               </Button>
               <Button 
                 variant="link"

@@ -37,7 +37,7 @@ export function Navigation({ className }: NavigationProps) {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-xl text-gray-900">FinMatch Software</div>
+          <div className="font-bold text-xl text-gray-900">FinMatch Service</div>
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("features")}

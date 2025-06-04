@@ -73,7 +73,7 @@ export default function Home() {
                 Track expenses, receipts, and bank transactions — without the spreadsheets.
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                A modern software platform to automate expense tracking, receipt matching, and tax-ready records — all in one place.
+                A higher-quality AI-powered bookkeeping service for solopreneurs and accountants.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -354,11 +354,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="font-bold text-xl text-gray-900 mb-4">FinMatch Software</div>
-              <p className="text-gray-600 mb-4">Automate your expense tracking with intelligent receipt matching and bank integration.</p>
+              <div className="font-bold text-xl text-gray-900 mb-4">FinMatch Service</div>
+              <p className="text-gray-600 mb-4">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
               <div className="text-sm text-gray-500">
-                <p>© 2024 FinMatch Software. All rights reserved.</p>
-                <p className="mt-2">Legal disclaimer: FinMatch Software is provided as-is for expense tracking purposes. Please consult with tax professionals for specific tax advice.</p>
+                <p>© 2024 FinMatch Service. All rights reserved.</p>
+                <p className="mt-2">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
               </div>
             </div>
             <div>

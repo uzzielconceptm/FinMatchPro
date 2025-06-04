@@ -159,3 +159,110 @@ export const sendSubscriptionConfirmation = async (
     throw new Error(`Failed to send confirmation email: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 };
+
+export const sendAdminNotification = async (
+  signupType: 'trial' | 'subscription',
+  userData: any
+) => {
+  try {
+    await transporter.verify();
+    
+    const { firstName, lastName, email, userType, company, planType } = userData;
+    const fullName = `${firstName} ${lastName}`;
+    
+    const subject = signupType === 'trial' 
+      ? `New Free Trial Signup - ${fullName}`
+      : `New Subscription Signup - ${fullName}`;
+    
+    const signupDetails = signupType === 'trial'
+      ? `
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Signup Type:</td><td style="padding: 8px; border: 1px solid #ddd;">Free Trial</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">User Mode:</td><td style="padding: 8px; border: 1px solid #ddd;">${userType} Mode</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Monthly Expenses:</td><td style="padding: 8px; border: 1px solid #ddd;">${userData.monthlyExpenses || 'Not specified'}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Current Tool:</td><td style="padding: 8px; border: 1px solid #ddd;">${userData.currentTool || 'Not specified'}</td></tr>
+      `
+      : `
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Signup Type:</td><td style="padding: 8px; border: 1px solid #ddd;">Early Access Subscription</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">User Mode:</td><td style="padding: 8px; border: 1px solid #ddd;">${userType} Mode</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Billing:</td><td style="padding: 8px; border: 1px solid #ddd;">${planType}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Client Count:</td><td style="padding: 8px; border: 1px solid #ddd;">${userData.clientCount || 'Not specified'}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Referral Source:</td><td style="padding: 8px; border: 1px solid #ddd;">${userData.referralSource || 'Not specified'}</td></tr>
+      `;
+    
+    const msg = {
+      from: `"FinMatch Service" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER, // Send to admin email
+      subject: subject,
+      text: `New ${signupType} signup from ${fullName} (${email})`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: #15765C; font-size: 28px; margin: 0;">FinMatch Service</h1>
+            <p style="color: #666; margin: 5px 0;">Admin Notification</p>
+          </div>
+          
+          <div style="background-color: ${signupType === 'trial' ? '#dbeafe' : '#fef3c7'}; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+            <h2 style="color: ${signupType === 'trial' ? '#1d4ed8' : '#92400e'}; margin: 0;">
+              ${signupType === 'trial' ? 'New Free Trial Signup' : 'New Subscription Signup'}
+            </h2>
+          </div>
+          
+          <h3 style="color: #333; margin-bottom: 15px;">User Details:</h3>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name:</td><td style="padding: 8px; border: 1px solid #ddd;">${fullName}</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email:</td><td style="padding: 8px; border: 1px solid #ddd;"><a href="mailto:${email}" style="color: #15765C;">${email}</a></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Company:</td><td style="padding: 8px; border: 1px solid #ddd;">${company || 'Not specified'}</td></tr>
+            ${signupDetails}
+            <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Signup Time:</td><td style="padding: 8px; border: 1px solid #ddd;">${new Date().toLocaleString()}</td></tr>
+          </table>
+          
+          ${signupType === 'trial' 
+            ? `
+              <div style="background-color: #f0f9ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #0369a1; margin-top: 0;">Free Trial Actions Required:</h4>
+                <ul style="color: #555; margin: 0;">
+                  <li>Send setup instructions within 24 hours</li>
+                  <li>Schedule onboarding call if needed</li>
+                  <li>Monitor trial usage and engagement</li>
+                </ul>
+              </div>
+            `
+            : `
+              <div style="background-color: #fefce8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #a16207; margin-top: 0;">Early Access Actions Required:</h4>
+                <ul style="color: #555; margin: 0;">
+                  <li>Contact within 48 hours for next steps</li>
+                  <li>Provide early access details and timeline</li>
+                  <li>Schedule product demo and migration assistance</li>
+                  <li>Add to priority customer list</li>
+                </ul>
+              </div>
+            `
+          }
+          
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="mailto:${email}" style="background-color: #15765C; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+              Contact User
+            </a>
+          </div>
+          
+          <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+          
+          <p style="color: #999; font-size: 12px; text-align: center;">
+            This is an automated admin notification from FinMatch Service.<br>
+            Generated on ${new Date().toLocaleString()}
+          </p>
+        </div>
+      `
+    };
+
+    const info = await transporter.sendMail(msg);
+    console.log('Admin notification email sent:', info.messageId);
+    return info;
+  } catch (error) {
+    console.error('Failed to send admin notification email:', error);
+    // Don't throw error here as this shouldn't break the user signup flow
+    return null;
+  }
+};

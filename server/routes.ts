@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { sendFreeTrialConfirmation, sendSubscriptionConfirmation } from "./email-service";
+import { sendFreeTrialConfirmation, sendSubscriptionConfirmation, sendAdminNotification } from "./email-service";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Health check endpoint
@@ -18,8 +18,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Missing required fields" });
       }
 
-      // Send confirmation email
+      // Send confirmation email to user
       await sendFreeTrialConfirmation(email, firstName, userType);
+      
+      // Send notification email to admin
+      await sendAdminNotification('trial', { firstName, lastName, email, userType, company, monthlyExpenses, currentTool });
       
       console.log("Free trial signup:", { firstName, lastName, email, userType, company, monthlyExpenses });
       
@@ -44,8 +47,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Missing required fields" });
       }
 
-      // Send confirmation email
+      // Send confirmation email to user
       await sendSubscriptionConfirmation(email, firstName, userType, planType);
+      
+      // Send notification email to admin
+      await sendAdminNotification('subscription', { firstName, lastName, email, userType, planType, company, clientCount, referralSource });
       
       console.log("Subscription signup:", { firstName, lastName, email, userType, planType, company, clientCount });
       

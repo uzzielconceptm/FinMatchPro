@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 
 interface NavigationProps {
   className?: string;
+  onSignupClick?: () => void;
 }
 
-export function Navigation({ className }: NavigationProps) {
+export function Navigation({ className, onSignupClick }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -57,7 +58,10 @@ export function Navigation({ className }: NavigationProps) {
             >
               How You Work
             </button>
-            <Button className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105">
+            <Button 
+              onClick={onSignupClick}
+              className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105"
+            >
               Get early access
             </Button>
           </div>

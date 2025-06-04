@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { 
   Clock, 
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/ui/navigation";
+import { SignupForm } from "@/components/signup-form";
 
 interface FadeInSectionProps {
   children: React.ReactNode;
@@ -53,6 +54,8 @@ function FadeInSection({ children, className = "", delay = 0 }: FadeInSectionPro
 }
 
 export default function Home() {
+  const [showSignupForm, setShowSignupForm] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -62,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="bg-white font-sans text-gray-900 overflow-x-hidden">
-      <Navigation />
+      <Navigation onSignupClick={() => setShowSignupForm(true)} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-white py-20 lg:py-32">
@@ -304,8 +307,11 @@ export default function Home() {
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   For freelancers, consultants, and self-employed pros. Automate your expenses, stay tax-ready, and never lose a receipt.
                 </p>
-                <Button className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105">
-                  Join early access
+                <Button 
+                  onClick={() => setShowSignupForm(true)}
+                  className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
+                >
+                  Start Free Trial
                 </Button>
               </div>
             </FadeInSection>
@@ -315,8 +321,11 @@ export default function Home() {
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   For bookkeepers and accounting teams managing multiple clients. Includes bulk tools, client switching, and smart automation.
                 </p>
-                <Button className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105">
-                  Request early access
+                <Button 
+                  onClick={() => scrollToSection("how-it-works")}
+                  className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
+                >
+                  See how it works
                 </Button>
               </div>
             </FadeInSection>
@@ -333,10 +342,11 @@ export default function Home() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button 
+                onClick={() => setShowSignupForm(true)}
                 variant="outline"
                 className="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
               >
-                Join early access
+                Start Free Trial
               </Button>
               <Button 
                 variant="link"
@@ -404,6 +414,10 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {showSignupForm && (
+        <SignupForm onClose={() => setShowSignupForm(false)} />
+      )}
     </div>
   );
 }

@@ -324,10 +324,10 @@ export default function Home() {
                   For bookkeepers and accounting teams managing multiple clients. Includes bulk tools, client switching, and smart automation.
                 </p>
                 <Button 
-                  onClick={() => scrollToSection("how-it-works")}
+                  onClick={() => setShowSignupForm(true)}
                   className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
                 >
-                  See how it works
+                  Start Free Trial
                 </Button>
               </div>
             </FadeInSection>

@@ -52,12 +52,29 @@ export function SignupForm({ onClose }: SignupFormProps) {
   const onSubmit = async (data: SignupForm) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Free trial signup:", data);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/signup/trial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Signup failed');
+      }
+
+      console.log("Free trial signup successful:", result);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Free trial signup error:", error);
+      // You might want to show an error message to the user here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -70,7 +87,7 @@ export function SignupForm({ onClose }: SignupFormProps) {
             </div>
             <CardTitle className="text-2xl text-gray-900">Welcome to FinMatch!</CardTitle>
             <CardDescription className="text-gray-600">
-              Thank you for signing up for the free trial. We'll send setup instructions to your email within 24 hours.
+              Thank you for signing up for the free trial. We've sent a confirmation email with setup instructions.
             </CardDescription>
           </CardHeader>
           <CardContent>

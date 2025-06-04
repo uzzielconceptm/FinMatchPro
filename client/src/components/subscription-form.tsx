@@ -77,12 +77,29 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
   const onSubmit = async (data: SubscriptionForm) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log("Subscription signup:", data);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/signup/subscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Signup failed');
+      }
+
+      console.log("Subscription signup successful:", result);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Subscription signup error:", error);
+      // You might want to show an error message to the user here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -95,7 +112,7 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
             </div>
             <CardTitle className="text-2xl text-gray-900">You're on the waitlist!</CardTitle>
             <CardDescription className="text-gray-600">
-              Thank you for your interest in FinMatch Service. We'll contact you within 48 hours with next steps and early access details.
+              Thank you for your interest in FinMatch Service. We've sent a confirmation email with next steps and early access details.
             </CardDescription>
           </CardHeader>
           <CardContent>

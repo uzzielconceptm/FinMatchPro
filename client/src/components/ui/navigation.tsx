@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 
 interface NavigationProps {
   className?: string;
-  onSignupClick?: () => void;
+  onSubscriptionClick?: () => void;
 }
 
-export function Navigation({ className, onSignupClick }: NavigationProps) {
+export function Navigation({ className, onSubscriptionClick }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export function Navigation({ className, onSignupClick }: NavigationProps) {
               How You Work
             </button>
             <Button 
-              onClick={onSignupClick}
+              onClick={onSubscriptionClick}
               className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105"
             >
               Get early access

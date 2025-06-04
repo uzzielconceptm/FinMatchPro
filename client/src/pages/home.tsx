@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/ui/navigation";
 import { SignupForm } from "@/components/signup-form";
+import { SubscriptionForm } from "@/components/subscription-form";
 
 interface FadeInSectionProps {
   children: React.ReactNode;
@@ -55,6 +56,7 @@ function FadeInSection({ children, className = "", delay = 0 }: FadeInSectionPro
 
 export default function Home() {
   const [showSignupForm, setShowSignupForm] = useState(false);
+  const [showSubscriptionForm, setShowSubscriptionForm] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -65,7 +67,7 @@ export default function Home() {
 
   return (
     <div className="bg-white font-sans text-gray-900 overflow-x-hidden">
-      <Navigation onSignupClick={() => setShowSignupForm(true)} />
+      <Navigation onSubscriptionClick={() => setShowSubscriptionForm(true)} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-white py-20 lg:py-32">
@@ -417,6 +419,9 @@ export default function Home() {
 
       {showSignupForm && (
         <SignupForm onClose={() => setShowSignupForm(false)} />
+      )}
+      {showSubscriptionForm && (
+        <SubscriptionForm onClose={() => setShowSubscriptionForm(false)} />
       )}
     </div>
   );

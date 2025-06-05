@@ -66,11 +66,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 overflow-x-hidden">
+    <div className="min-h-screen font-sans text-gray-900 overflow-x-hidden">
       <Navigation onSubscriptionClick={() => setShowSubscriptionForm(true)} />
 
       {/* Hero Section */}
-      <section className="relative section-spacing bg-white">
+      <section className="relative section-spacing">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
@@ -139,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* Primary Benefit Section */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
@@ -182,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="section-spacing bg-gray-50">
+      <section id="features" className="section-spacing bg-white/60 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="section-spacing bg-white">
+      <section id="how-it-works" className="section-spacing bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
@@ -268,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* Trust Section */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-white/60 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
             <p className="text-lg text-gray-600 mb-12">
@@ -293,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* Plans Section */}
-      <section id="plans" className="section-spacing bg-white">
+      <section id="plans" className="section-spacing bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
@@ -365,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 py-12 border-t border-gray-200">
+      <footer className="bg-white/80 backdrop-blur-sm py-12 border-t border-gray-200/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">

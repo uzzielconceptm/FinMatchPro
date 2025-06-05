@@ -40,9 +40,9 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
       <div className="max-w-6xl mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img src={logoPath} alt="FinMatch Service" className="h-20 w-auto" />
+            <img src={logoPath} alt="FinMatch Service" className="h-24 w-auto" />
           </div>
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => scrollToSection("features")}
               className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium"

@@ -66,120 +66,114 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans text-gray-900 overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans text-gray-900 overflow-x-hidden">
       <Navigation onSubscriptionClick={() => setShowSubscriptionForm(true)} />
 
       {/* Hero Section */}
-      <section className="relative section-spacing">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative section-spacing bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8 text-shadow-sm">
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 Track expenses, receipts, and bank transactions — without the spreadsheets.
               </h1>
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 A higher-quality AI-powered bookkeeping service for solopreneurs and accountants.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   variant="outline"
                   onClick={() => scrollToSection("how-it-works")}
-                  className="border-2 border-primary/20 hover:border-primary bg-white/80 text-gray-700 hover:text-primary px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 card-shadow"
+                  className="border-2 border-gray-300 hover:border-primary text-gray-700 hover:text-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
                 >
                   See how it works
                 </Button>
               </div>
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                  alt="Modern business dashboard" 
-                  className="rounded-2xl card-shadow-lg w-full" 
-                />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/5 to-transparent pointer-events-none"></div>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                alt="Modern business dashboard" 
+                className="rounded-lg card-shadow w-full" 
+              />
             </FadeInSection>
           </div>
         </div>
       </section>
 
       {/* Primary Pain Section */}
-      <section className="section-spacing bg-white/60">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="section-spacing bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-shadow-sm">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Why manual tracking doesn't scale
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Manual expense tracking wastes hours and leads to missed deductions or audit stress.
             </p>
           </FadeInSection>
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <FadeInSection delay={0.1} className="text-center p-8 bg-white/80 rounded-2xl card-shadow">
-              <div className="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Clock className="w-10 h-10 text-red-600" />
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            <FadeInSection delay={0.1} className="text-center p-6">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-3 text-lg">Time Consuming</h3>
-              <p className="text-gray-600 leading-relaxed">Hours spent sorting through receipts and categorizing expenses</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Time Consuming</h3>
+              <p className="text-gray-600">Hours spent sorting through receipts and categorizing expenses</p>
             </FadeInSection>
-            <FadeInSection delay={0.2} className="text-center p-8 bg-white/80 rounded-2xl card-shadow">
-              <div className="w-20 h-20 bg-yellow-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <AlertTriangle className="w-10 h-10 text-yellow-600" />
+            <FadeInSection delay={0.2} className="text-center p-6">
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-3 text-lg">Error Prone</h3>
-              <p className="text-gray-600 leading-relaxed">Manual entry leads to mistakes and missed deductions</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Error Prone</h3>
+              <p className="text-gray-600">Manual entry leads to mistakes and missed deductions</p>
             </FadeInSection>
-            <FadeInSection delay={0.3} className="text-center p-8 bg-white/80 rounded-2xl card-shadow">
-              <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <FileX className="w-10 h-10 text-orange-600" />
+            <FadeInSection delay={0.3} className="text-center p-6">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FileX className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-3 text-lg">Audit Stress</h3>
-              <p className="text-gray-600 leading-relaxed">Disorganized records create anxiety during tax season</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Audit Stress</h3>
+              <p className="text-gray-600">Disorganized records create anxiety during tax season</p>
             </FadeInSection>
           </div>
         </div>
       </section>
 
       {/* Primary Benefit Section */}
-      <section className="section-spacing">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="section-spacing bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                  alt="Financial automation dashboard" 
-                  className="rounded-2xl card-shadow-lg w-full" 
-                />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                alt="Financial automation dashboard" 
+                className="rounded-lg card-shadow w-full" 
+              />
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-shadow-sm">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 How FinMatch simplifies everything
               </h2>
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 FinMatch connects your inbox and bank — receipts are matched, categorized, and ready to export.
               </p>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-white/80 rounded-xl card-shadow">
-                  <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Check className="w-6 h-6 text-white" />
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <Check className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Automatic receipt extraction from email</span>
+                  <span className="text-gray-700">Automatic receipt extraction from email</span>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-white/80 rounded-xl card-shadow">
-                  <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Check className="w-6 h-6 text-white" />
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <Check className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Smart matching with bank transactions</span>
+                  <span className="text-gray-700">Smart matching with bank transactions</span>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-white/80 rounded-xl card-shadow">
-                  <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Check className="w-6 h-6 text-white" />
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <Check className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Tax-ready categorization and exports</span>
+                  <span className="text-gray-700">Tax-ready categorization and exports</span>
                 </div>
               </div>
             </FadeInSection>

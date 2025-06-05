@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
+import logoPath from "@assets/Logo1.png";
 
 interface NavigationProps {
   className?: string;
@@ -29,38 +30,41 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
+        "sticky top-0 z-50 transition-all duration-200",
         isScrolled
-          ? "glass-effect card-shadow border-b border-gray-200/50"
-          : "glass-effect border-b border-gray-200/30",
+          ? "glass-effect card-shadow"
+          : "glass-effect",
         className
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 py-5">
+      <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-xl text-gray-900 text-shadow-sm">FinMatch Service</div>
+          <div className="flex items-center space-x-3">
+            <img src={logoPath} alt="FinMatch" className="h-8 w-auto" />
+            <span className="font-semibold text-lg text-gray-900">Service</span>
+          </div>
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+              className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection("how-it-works")}
-              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+              className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium"
             >
               How it works
             </button>
             <button
               onClick={() => scrollToSection("plans")}
-              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+              className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium"
             >
               How You Work
             </button>
             <Button 
               onClick={onSubscriptionClick}
-              className="gradient-primary text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 card-shadow text-shadow-sm"
+              className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
             >
               Get early access
             </Button>

@@ -29,38 +29,38 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 transition-all duration-200",
+        "sticky top-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-sm border-b border-gray-100 shadow-sm"
-          : "bg-white/90 backdrop-blur-sm border-b border-gray-100",
+          ? "glass-effect card-shadow border-b border-gray-200/50"
+          : "glass-effect border-b border-gray-200/30",
         className
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-xl text-gray-900">FinMatch Service</div>
+          <div className="font-bold text-xl text-gray-900 text-shadow-sm">FinMatch Service</div>
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection("how-it-works")}
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
             >
               How it works
             </button>
             <button
               onClick={() => scrollToSection("plans")}
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-all duration-200 font-medium hover:scale-105"
             >
               How You Work
             </button>
             <Button 
               onClick={onSubscriptionClick}
-              className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105"
+              className="gradient-primary text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 card-shadow text-shadow-sm"
             >
               Get early access
             </Button>

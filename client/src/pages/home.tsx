@@ -74,11 +74,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-6 tracking-tight">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6 tracking-tight">
                 Track expenses, receipts, and bank transactions{" "}
                 <span className="text-primary">— without the spreadsheets.</span>
               </h1>
-              <p className="text-lg lg:text-xl text-gray-700 mb-8 leading-relaxed font-medium max-w-2xl">
+              <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed font-medium max-w-2xl">
                 A higher-quality AI-powered bookkeeping service for solopreneurs and accountants.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -106,10 +106,10 @@ export default function Home() {
       <section className="section-spacing bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
               Why manual tracking <span className="text-red-600">doesn't scale</span>
             </h2>
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-medium max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium max-w-3xl mx-auto">
               Manual expense tracking wastes hours and leads to missed deductions or audit stress.
             </p>
           </FadeInSection>
@@ -151,10 +151,10 @@ export default function Home() {
               />
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
                 How FinMatch <span className="text-primary">simplifies everything</span>
               </h2>
-              <p className="text-lg lg:text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+              <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed font-medium">
                 FinMatch connects your inbox and bank — receipts are matched, categorized, and ready to export.
               </p>
               <div className="space-y-4">
@@ -187,7 +187,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
                 Key features built for <span className="text-primary">real workflows</span>
               </h2>
             </FadeInSection>
@@ -220,7 +220,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
                 How it <span className="text-primary">works</span>
               </h2>
             </FadeInSection>

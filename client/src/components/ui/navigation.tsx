@@ -37,7 +37,7 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
         className
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="max-w-6xl mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <img src={logoPath} alt="FinMatch Service" className="h-20 w-auto" />

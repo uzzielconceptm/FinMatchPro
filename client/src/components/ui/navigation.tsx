@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
-import logoPath from "@assets/Logo1.png";
+import logoPath from "@assets/20250604_2237_FinMatch Service Added_remix_01jwyvpm1sen1st8k7rxmbhpmy_1749087516495.png";
 
 interface NavigationProps {
   className?: string;
@@ -39,9 +39,8 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-1">
-            <img src={logoPath} alt="FinMatch" className="h-12 w-auto" />
-            <span className="font-black text-3xl text-primary-dark" style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}>Service</span>
+          <div className="flex items-center">
+            <img src={logoPath} alt="FinMatch Service" className="h-10 w-auto" />
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <button

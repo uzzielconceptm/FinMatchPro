@@ -227,6 +227,34 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Enhanced border utilities */
+  .border-3 {
+    border-width: 3px;
+  }
+
+  /* Enhanced typography */
+  .font-black {
+    font-weight: 900;
+  }
+
+  .tracking-tight {
+    letter-spacing: -0.025em;
+  }
+
+  /* Enhanced shadows and transforms */
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .transform {
+    transform: translateZ(0);
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button, .hover\\:shadow-xl {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 @layer utilities {

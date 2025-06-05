@@ -74,17 +74,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                Track expenses, receipts, and bank transactions — without the spreadsheets.
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight mb-8 tracking-tight">
+                Track expenses, receipts, and bank transactions{" "}
+                <span className="text-primary">— without the spreadsheets.</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-2xl">
                 A higher-quality AI-powered bookkeeping service for solopreneurs and accountants.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <Button
                   variant="outline"
                   onClick={() => scrollToSection("how-it-works")}
-                  className="border-2 border-gray-300 hover:border-primary text-gray-700 hover:text-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
+                  className="border-3 border-primary hover:bg-primary hover:text-white text-primary px-10 py-4 rounded-xl font-bold text-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   See how it works
                 </Button>
@@ -105,10 +106,10 @@ export default function Home() {
       <section className="section-spacing bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Why manual tracking doesn't scale
+            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-8 tracking-tight">
+              Why manual tracking <span className="text-red-600">doesn't scale</span>
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium max-w-3xl mx-auto">
               Manual expense tracking wastes hours and leads to missed deductions or audit stress.
             </p>
           </FadeInSection>
@@ -150,10 +151,10 @@ export default function Home() {
               />
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                How FinMatch simplifies everything
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-8 tracking-tight">
+                How FinMatch <span className="text-primary">simplifies everything</span>
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-gray-700 mb-10 leading-relaxed font-medium">
                 FinMatch connects your inbox and bank — receipts are matched, categorized, and ready to export.
               </p>
               <div className="space-y-4">
@@ -186,8 +187,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Key features built for real workflows
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-8 tracking-tight">
+                Key features built for <span className="text-primary">real workflows</span>
               </h2>
             </FadeInSection>
           </div>
@@ -202,12 +203,12 @@ export default function Home() {
               { icon: UserPlus, title: "Invite your accountant", subtitle: "Collaboration tools" },
               { icon: Download, title: "Export options", subtitle: "CSV or TurboTax-ready format" }
             ].map((feature, index) => (
-              <FadeInSection key={index} delay={index * 0.1} className="bg-white rounded-lg p-6 card-shadow hover:card-shadow-lg transition-all duration-200">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
+              <FadeInSection key={index} delay={index * 0.1} className="bg-white rounded-xl p-8 card-shadow hover:card-shadow-lg transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-primary">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.subtitle}</p>
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">{feature.title}</h3>
+                <p className="text-gray-600 font-medium">{feature.subtitle}</p>
               </FadeInSection>
             ))}
           </div>
@@ -219,8 +220,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                How it works
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-8 tracking-tight">
+                How it <span className="text-primary">works</span>
               </h2>
             </FadeInSection>
           </div>
@@ -242,10 +243,10 @@ export default function Home() {
                 description: "Access your organized expenses with proper tax categories, ready for export or accountant review."
               }
             ].map((item, index) => (
-              <FadeInSection key={index} delay={index * 0.2} className="text-center">
+              <FadeInSection key={index} delay={index * 0.2} className="text-center p-8 bg-white rounded-xl card-shadow hover:card-shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                 <div className="relative mb-8">
-                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-white">{item.step}</span>
+                  <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+                    <span className="text-3xl font-black text-white">{item.step}</span>
                   </div>
                   {index < 2 && (
                     <div className="absolute top-10 left-1/2 w-full h-0.5 bg-gray-200 hidden md:block" 

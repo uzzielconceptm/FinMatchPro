@@ -182,16 +182,16 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="section-spacing bg-white/60">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+      <section id="features" className="section-spacing bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-shadow-sm">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 Key features built for real workflows
               </h2>
             </FadeInSection>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: Mail, title: "Email-to-receipt extraction", subtitle: "Gmail & Outlook integration" },
               { icon: CreditCard, title: "Bank and card sync", subtitle: "Plaid integration" },
@@ -202,12 +202,12 @@ export default function Home() {
               { icon: UserPlus, title: "Invite your accountant", subtitle: "Collaboration tools" },
               { icon: Download, title: "Export options", subtitle: "CSV or TurboTax-ready format" }
             ].map((feature, index) => (
-              <FadeInSection key={index} delay={index * 0.1} className="bg-white/90 rounded-2xl p-8 hover:card-shadow-lg transition-all duration-300 hover:scale-105 group">
-                <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200">
-                  <feature.icon className="w-8 h-8 text-white" />
+              <FadeInSection key={index} delay={index * 0.1} className="bg-white rounded-lg p-6 card-shadow hover:card-shadow-lg transition-all duration-200">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-3 text-lg">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.subtitle}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-sm">{feature.subtitle}</p>
               </FadeInSection>
             ))}
           </div>
@@ -215,16 +215,16 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="section-spacing">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+      <section id="how-it-works" className="section-spacing bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-shadow-sm">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 How it works
               </h2>
             </FadeInSection>
           </div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 step: "1",
@@ -243,52 +243,49 @@ export default function Home() {
               }
             ].map((item, index) => (
               <FadeInSection key={index} delay={index * 0.2} className="text-center">
-                <div className="relative mb-10">
-                  <div className="w-24 h-24 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 card-shadow">
-                    <span className="text-3xl font-bold text-white text-shadow-sm">{item.step}</span>
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-white">{item.step}</span>
                   </div>
                   {index < 2 && (
-                    <div className="absolute top-12 left-1/2 w-full h-1 bg-gradient-to-r from-primary/30 to-primary/10 hidden md:block rounded-full" 
-                         style={{ transform: "translateX(50%)", width: "calc(100vw/3 - 96px)" }} />
+                    <div className="absolute top-10 left-1/2 w-full h-0.5 bg-gray-200 hidden md:block" 
+                         style={{ transform: "translateX(50%)", width: "calc(100vw/3 - 80px)" }} />
                   )}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-6">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </FadeInSection>
             ))}
           </div>
-          <FadeInSection delay={0.4} className="text-center mt-20">
-            <div className="relative max-w-4xl mx-auto">
-              <img 
-                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=600" 
-                alt="Expense tracking software interface" 
-                className="rounded-2xl card-shadow-lg mx-auto w-full" 
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
-            </div>
+          <FadeInSection delay={0.4} className="text-center mt-12">
+            <img 
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=600" 
+              alt="Expense tracking software interface" 
+              className="rounded-lg card-shadow mx-auto" 
+            />
           </FadeInSection>
         </div>
       </section>
 
       {/* Trust Section */}
-      <section className="section-spacing">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="section-spacing bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
-            <p className="text-xl text-gray-600 mb-16 font-medium">
+            <p className="text-lg text-gray-600 mb-12">
               Used by early-access bookkeepers in the U.S.
             </p>
-            <div className="flex justify-center items-center space-x-16 opacity-70">
-              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
-                <Mail className="w-10 h-10 text-primary" />
-                <span className="text-lg font-semibold text-gray-700">Gmail</span>
+            <div className="flex justify-center items-center space-x-12 opacity-60">
+              <div className="flex items-center space-x-2">
+                <Mail className="w-8 h-8 text-gray-400" />
+                <span className="text-lg font-medium text-gray-500">Gmail</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
-                <Mail className="w-10 h-10 text-primary" />
-                <span className="text-lg font-semibold text-gray-700">Outlook</span>
+              <div className="flex items-center space-x-2">
+                <Mail className="w-8 h-8 text-gray-400" />
+                <span className="text-lg font-medium text-gray-500">Outlook</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
-                <Building2 className="w-10 h-10 text-primary" />
-                <span className="text-lg font-semibold text-gray-700">Bank sync</span>
+              <div className="flex items-center space-x-2">
+                <Building2 className="w-8 h-8 text-gray-400" />
+                <span className="text-lg font-medium text-gray-500">Bank sync</span>
               </div>
             </div>
           </FadeInSection>
@@ -296,39 +293,39 @@ export default function Home() {
       </section>
 
       {/* Plans Section */}
-      <section id="plans" className="section-spacing bg-white/60">
+      <section id="plans" className="section-spacing bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <FadeInSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-shadow-sm">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 Choose how you work
               </h2>
             </FadeInSection>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <FadeInSection delay={0.1}>
-              <div className="bg-white/90 rounded-3xl p-10 hover:card-shadow-lg transition-all duration-300 hover:scale-105 group">
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Solo Mode</h3>
-                <p className="text-gray-600 mb-10 leading-relaxed text-lg">
+              <div className="bg-gray-50 rounded-lg p-8 card-shadow hover:card-shadow-lg transition-all duration-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Solo Mode</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed">
                   For freelancers, consultants, and self-employed pros. Automate your expenses, stay tax-ready, and never lose a receipt.
                 </p>
                 <Button 
                   onClick={() => setShowSignupForm(true)}
-                  className="w-full gradient-primary text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:scale-105 card-shadow text-shadow-sm"
+                  className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
                 >
                   Start Free Trial
                 </Button>
               </div>
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <div className="bg-white/90 rounded-3xl p-10 hover:card-shadow-lg transition-all duration-300 hover:scale-105 group">
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Accountant Mode</h3>
-                <p className="text-gray-600 mb-10 leading-relaxed text-lg">
+              <div className="bg-gray-50 rounded-lg p-8 card-shadow hover:card-shadow-lg transition-all duration-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Accountant Mode</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed">
                   For bookkeepers and accounting teams managing multiple clients. Includes bulk tools, client switching, and smart automation.
                 </p>
                 <Button 
                   onClick={() => setShowSignupForm(true)}
-                  className="w-full gradient-primary text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:scale-105 card-shadow text-shadow-sm"
+                  className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
                 >
                   Start Free Trial
                 </Button>
@@ -339,25 +336,24 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing gradient-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-        <div className="max-w-5xl mx-auto px-6 text-center relative">
+      <section className="section-spacing bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeInSection>
-            <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-shadow-sm">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Start automating your expenses today
             </h2>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button 
                 onClick={() => setShowSubscriptionForm(true)}
                 variant="outline"
-                className="border-2 border-white/30 hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:scale-105 card-shadow"
+                className="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
               >
                 Get early access
               </Button>
               <Button 
                 variant="link"
                 asChild
-                className="text-white/90 hover:text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-200 underline hover:scale-105"
+                className="text-white hover:text-gray-200 px-8 py-3 rounded-lg font-medium text-lg transition-colors duration-200 underline"
               >
                 <a href="https://calendly.com/finmatch-service/consultation" target="_blank" rel="noopener noreferrer">
                   Talk to an expert
@@ -369,24 +365,24 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white/80 py-16 border-t border-gray-200/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12">
+      <footer className="bg-gray-50 py-12 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="font-bold text-2xl text-gray-900 mb-6 text-shadow-sm">FinMatch Service</div>
-              <p className="text-gray-600 mb-8 leading-relaxed text-lg">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
-              <div className="text-sm text-gray-500 leading-relaxed">
-                <p className="font-medium">© 2024 FinMatch Service. All rights reserved.</p>
-                <p className="mt-3">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
+              <div className="font-bold text-xl text-gray-900 mb-4">FinMatch Service</div>
+              <p className="text-gray-600 mb-4">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
+              <div className="text-sm text-gray-500">
+                <p>© 2024 FinMatch Service. All rights reserved.</p>
+                <p className="mt-2">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
               </div>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-6 text-lg">Product</h3>
-              <ul className="space-y-3 text-gray-600">
+              <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
+              <ul className="space-y-2 text-gray-600">
                 <li>
                   <button 
                     onClick={() => scrollToSection("features")}
-                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+                    className="hover:text-primary transition-colors"
                   >
                     Features
                   </button>
@@ -394,7 +390,7 @@ export default function Home() {
                 <li>
                   <button 
                     onClick={() => scrollToSection("how-it-works")}
-                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+                    className="hover:text-primary transition-colors"
                   >
                     How it works
                   </button>
@@ -402,22 +398,22 @@ export default function Home() {
                 <li>
                   <button 
                     onClick={() => scrollToSection("plans")}
-                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
+                    className="hover:text-primary transition-colors"
                   >
                     How You Work
                   </button>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Pricing</a>
+                  <a href="#" className="hover:text-primary transition-colors">Pricing</a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-6 text-lg">Support</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Help Center</a></li>
-                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Contact</a></li>
-                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Privacy</a></li>
+              <h3 className="font-semibold text-gray-900 mb-4">Support</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
               </ul>
             </div>
           </div>

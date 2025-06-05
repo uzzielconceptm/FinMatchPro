@@ -277,24 +277,24 @@ export default function Home() {
       </section>
 
       {/* Trust Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="section-spacing">
+        <div className="max-w-5xl mx-auto px-6 text-center">
           <FadeInSection>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-xl text-gray-600 mb-16 font-medium">
               Used by early-access bookkeepers in the U.S.
             </p>
-            <div className="flex justify-center items-center space-x-12 opacity-60">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-8 h-8 text-gray-400" />
-                <span className="text-lg font-medium text-gray-500">Gmail</span>
+            <div className="flex justify-center items-center space-x-16 opacity-70">
+              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
+                <Mail className="w-10 h-10 text-primary" />
+                <span className="text-lg font-semibold text-gray-700">Gmail</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-8 h-8 text-gray-400" />
-                <span className="text-lg font-medium text-gray-500">Outlook</span>
+              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
+                <Mail className="w-10 h-10 text-primary" />
+                <span className="text-lg font-semibold text-gray-700">Outlook</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Building2 className="w-8 h-8 text-gray-400" />
-                <span className="text-lg font-medium text-gray-500">Bank sync</span>
+              <div className="flex items-center space-x-3 p-4 bg-white/80 rounded-2xl card-shadow">
+                <Building2 className="w-10 h-10 text-primary" />
+                <span className="text-lg font-semibold text-gray-700">Bank sync</span>
               </div>
             </div>
           </FadeInSection>
@@ -345,24 +345,25 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="section-spacing gradient-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+        <div className="max-w-5xl mx-auto px-6 text-center relative">
           <FadeInSection>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-shadow-sm">
               Start automating your expenses today
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
               <Button 
                 onClick={() => setShowSubscriptionForm(true)}
                 variant="outline"
-                className="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
+                className="border-2 border-white/30 hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:scale-105 card-shadow"
               >
                 Get early access
               </Button>
               <Button 
                 variant="link"
                 asChild
-                className="text-white hover:text-gray-200 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 underline"
+                className="text-white/90 hover:text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-200 underline hover:scale-105"
               >
                 <a href="https://calendly.com/finmatch-service/consultation" target="_blank" rel="noopener noreferrer">
                   Talk to an expert
@@ -374,24 +375,24 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 py-12 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
+      <footer className="bg-white/80 py-16 border-t border-gray-200/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
-              <div className="font-bold text-xl text-gray-900 mb-4">FinMatch Service</div>
-              <p className="text-gray-600 mb-4">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
-              <div className="text-sm text-gray-500">
-                <p>© 2024 FinMatch Service. All rights reserved.</p>
-                <p className="mt-2">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
+              <div className="font-bold text-2xl text-gray-900 mb-6 text-shadow-sm">FinMatch Service</div>
+              <p className="text-gray-600 mb-8 leading-relaxed text-lg">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
+              <div className="text-sm text-gray-500 leading-relaxed">
+                <p className="font-medium">© 2024 FinMatch Service. All rights reserved.</p>
+                <p className="mt-3">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-6 text-lg">Product</h3>
+              <ul className="space-y-3 text-gray-600">
                 <li>
                   <button 
                     onClick={() => scrollToSection("features")}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
                   >
                     Features
                   </button>
@@ -399,7 +400,7 @@ export default function Home() {
                 <li>
                   <button 
                     onClick={() => scrollToSection("how-it-works")}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
                   >
                     How it works
                   </button>
@@ -407,22 +408,22 @@ export default function Home() {
                 <li>
                   <button 
                     onClick={() => scrollToSection("plans")}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-all duration-200 font-medium hover:scale-105"
                   >
                     How You Work
                   </button>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">Pricing</a>
+                  <a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Pricing</a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
+              <h3 className="font-bold text-gray-900 mb-6 text-lg">Support</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Help Center</a></li>
+                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Contact</a></li>
+                <li><a href="#" className="hover:text-primary transition-all duration-200 font-medium hover:scale-105">Privacy</a></li>
               </ul>
             </div>
           </div>

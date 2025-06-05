@@ -39,9 +39,9 @@ export function Navigation({ className, onSubscriptionClick }: NavigationProps) 
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img src={logoPath} alt="FinMatch" className="h-10 w-auto" />
-            <span className="font-bold text-2xl text-primary">Service</span>
+          <div className="flex items-center space-x-1">
+            <img src={logoPath} alt="FinMatch" className="h-12 w-auto" />
+            <span className="font-black text-3xl text-primary-dark" style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}>Service</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <button

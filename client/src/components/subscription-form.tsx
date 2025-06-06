@@ -17,7 +17,7 @@ const subscriptionSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   company: z.string().optional(),
   userType: z.enum(["solo", "accountant"], {
-    required_error: "Please select how you'll use FinMatch",
+    required_error: "Please select how you'll use FlowBooks Associate",
   }),
   planType: z.enum(["monthly", "annual"], {
     required_error: "Please select a billing period",
@@ -112,7 +112,7 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
             </div>
             <CardTitle className="text-2xl text-gray-900">You're on the waitlist!</CardTitle>
             <CardDescription className="text-gray-600">
-              Thank you for your interest in FinMatch Service. We've sent a confirmation email with next steps and early access details.
+              Thank you for your interest in FlowBooks Associate. We've sent a confirmation email with next steps and early access details.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -144,7 +144,7 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
             <Star className="w-5 h-5 text-yellow-500 fill-current" />
             <span className="text-sm font-medium text-gray-600">Early Access Program</span>
           </div>
-          <CardTitle className="text-2xl text-gray-900">Join FinMatch Service</CardTitle>
+          <CardTitle className="text-2xl text-gray-900">Join FlowBooks Associate</CardTitle>
           <CardDescription className="text-gray-600">
             Get priority access to our AI-powered bookkeeping service with exclusive early adopter pricing.
           </CardDescription>

@@ -85,7 +85,7 @@ export function SignupForm({ onClose }: SignupFormProps) {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Check className="w-8 h-8 text-green-600" />
             </div>
-            <CardTitle className="text-2xl text-gray-900">Welcome to FinMatch!</CardTitle>
+            <CardTitle className="text-2xl text-gray-900">Welcome to FlowBooks Associate!</CardTitle>
             <CardDescription className="text-gray-600">
               Thank you for signing up for the free trial. We've sent a confirmation email with setup instructions.
             </CardDescription>
@@ -115,7 +115,7 @@ export function SignupForm({ onClose }: SignupFormProps) {
           </button>
           <CardTitle className="text-2xl text-gray-900">Start Your Free Trial</CardTitle>
           <CardDescription className="text-gray-600">
-            Get 30 days of FinMatch Service to see how AI-powered bookkeeping can transform your expense tracking.
+            Get 30 days of FlowBooks Associate to see how AI-powered bookkeeping can transform your expense tracking.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -167,7 +167,7 @@ export function SignupForm({ onClose }: SignupFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label>How will you use FinMatch?</Label>
+              <Label>How will you use FlowBooks Associate?</Label>
               <Select onValueChange={(value) => form.setValue("userType", value as "solo" | "accountant")}>
                 <SelectTrigger className={form.formState.errors.userType ? "border-red-500" : ""}>
                   <SelectValue placeholder="Select your use case" />

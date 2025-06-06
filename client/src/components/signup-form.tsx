@@ -16,7 +16,7 @@ const signupSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   company: z.string().optional(),
   userType: z.enum(["solo", "accountant"], {
-    required_error: "Please select how you'll use FinMatch",
+    required_error: "Please select how you'll use FlowBooks Associate",
   }),
   monthlyExpenses: z.enum(["under-500", "500-2000", "2000-5000", "over-5000"], {
     required_error: "Please select your monthly expense range",

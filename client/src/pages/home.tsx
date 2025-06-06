@@ -152,10 +152,10 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection delay={0.2}>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
-                How FinMatch <span className="text-primary">simplifies everything</span>
+                How FlowBooks Associate <span className="text-primary">simplifies everything</span>
               </h2>
               <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed font-medium">
-                FinMatch connects your inbox and bank — receipts are matched, categorized, and ready to export.
+                FlowBooks Associate connects your inbox and bank — receipts are matched, categorized, and ready to export.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -234,7 +234,7 @@ export default function Home() {
               },
               {
                 step: "2", 
-                title: "FinMatch finds and matches receipts",
+                title: "FlowBooks Associate finds and matches receipts",
                 description: "Our AI automatically extracts receipts from your inbox and matches them to bank transactions."
               },
               {
@@ -356,7 +356,7 @@ export default function Home() {
                 asChild
                 className="text-white hover:text-gray-200 px-8 py-3 rounded-lg font-medium text-lg transition-colors duration-200 underline"
               >
-                <a href="https://calendly.com/finmatch-service/consultation" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/flowbooks-associate/consultation" target="_blank" rel="noopener noreferrer">
                   Talk to an expert
                 </a>
               </Button>
@@ -370,11 +370,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="font-bold text-xl text-gray-900 mb-4">FinMatch Service</div>
+              <div className="font-bold text-xl text-gray-900 mb-4">FlowBooks Associate</div>
               <p className="text-gray-600 mb-4">AI-powered bookkeeping service with intelligent receipt matching and bank integration.</p>
               <div className="text-sm text-gray-500">
-                <p>© 2024 FinMatch Service. All rights reserved.</p>
-                <p className="mt-2">Legal disclaimer: FinMatch Service is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
+                <p>© 2024 FlowBooks Associate. All rights reserved.</p>
+                <p className="mt-2">Legal disclaimer: FlowBooks Associate is provided as-is for bookkeeping purposes. Please consult with tax professionals for specific tax advice.</p>
               </div>
             </div>
             <div>

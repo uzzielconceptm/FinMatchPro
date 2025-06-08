@@ -314,7 +314,7 @@ export default function Home() {
                   onClick={() => setShowSignupForm(true)}
                   className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
                 >
-                  Start Free Trial
+                  Start Free
                 </Button>
               </div>
             </FadeInSection>
@@ -328,7 +328,7 @@ export default function Home() {
                   onClick={() => setShowSignupForm(true)}
                   className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200"
                 >
-                  Start Free Trial
+                  Start Free
                 </Button>
               </div>
             </FadeInSection>

@@ -18,12 +18,17 @@ export function useUserProfile() {
   }, [user])
 
   const fetchProfile = async () => {
+    if (!supabase || !user) {
+      setLoading(false)
+      return
+    }
+
     try {
       setLoading(true)
       const { data, error } = await supabase
         .from('user_profiles')
         .select('*')
-        .eq('id', user?.id)
+        .eq('id', user.id)
         .single()
 
       if (error) throw error
@@ -36,10 +41,14 @@ export function useUserProfile() {
   }
 
   const createProfile = async (profileData: Omit<UserProfile, 'id' | 'created_at' | 'updated_at'>) => {
+    if (!supabase || !user) {
+      return { data: null, error: 'Supabase not configured or user not authenticated' }
+    }
+
     try {
       const { data, error } = await supabase
         .from('user_profiles')
-        .insert([{ ...profileData, id: user?.id }])
+        .insert([{ ...profileData, id: user.id }])
         .select()
         .single()
 
@@ -52,11 +61,15 @@ export function useUserProfile() {
   }
 
   const updateProfile = async (updates: Partial<UserProfile>) => {
+    if (!supabase || !user) {
+      return { data: null, error: 'Supabase not configured or user not authenticated' }
+    }
+
     try {
       const { data, error } = await supabase
         .from('user_profiles')
         .update(updates)
-        .eq('id', user?.id)
+        .eq('id', user.id)
         .select()
         .single()
 

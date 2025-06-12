@@ -10,11 +10,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { X, Check, Star } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const subscriptionSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
   company: z.string().optional(),
   userType: z.enum(["solo", "accountant"], {
     required_error: "Please select how you'll use FlowBooks Associate",
@@ -47,6 +49,7 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
       firstName: "",
       lastName: "",
       email: "",
+      password: "",
       company: "",
       phoneNumber: "",
       referralSource: "",
@@ -78,25 +81,62 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/signup/subscription', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      if (supabase) {
+        // Use Supabase if configured
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email: data.email,
+          password: data.password,
+          options: {
+            data: {
+              first_name: data.firstName,
+              last_name: data.lastName,
+            }
+          }
+        });
 
-      const result = await response.json();
+        if (authError) throw authError;
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Signup failed');
+        if (authData.user) {
+          // Create user profile with subscription data
+          const { error: profileError } = await supabase
+            .from('user_profiles')
+            .insert([{
+              id: authData.user.id,
+              email: data.email,
+              first_name: data.firstName,
+              last_name: data.lastName,
+              company: data.company || null,
+              user_type: data.userType,
+              plan_type: data.planType,
+              client_count: data.clientCount || null,
+              phone_number: data.phoneNumber || null,
+              referral_source: data.referralSource || null,
+              marketing_emails: data.marketingEmails
+            }]);
+
+          if (profileError) throw profileError;
+        }
+      } else {
+        // Fall back to existing API endpoint
+        const response = await fetch('/api/signup/subscription', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Signup failed');
+        }
       }
 
-      console.log("Subscription signup successful:", result);
       setIsSubmitted(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Subscription signup error:", error);
-      // You might want to show an error message to the user here
+      alert(error.message || 'Signup failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

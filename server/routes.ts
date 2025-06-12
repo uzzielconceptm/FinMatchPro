@@ -2,20 +2,49 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendFreeTrialConfirmation, sendSubscriptionConfirmation, sendAdminNotification } from "./email-service";
+import { createUser, getUserByEmail, checkDatabaseHealth } from "./db";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Health check endpoint
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
+  app.get("/api/health", async (req, res) => {
+    const dbHealthy = await checkDatabaseHealth();
+    res.json({ 
+      status: "ok",
+      database: dbHealthy ? "connected" : "disconnected",
+      timestamp: new Date().toISOString()
+    });
   });
 
   // Free trial signup endpoint
   app.post("/api/signup/trial", async (req, res) => {
     try {
-      const { firstName, lastName, email, userType, company, monthlyExpenses, currentTool } = req.body;
+      const { firstName, lastName, email, password, userType, company, monthlyExpenses, currentTool } = req.body;
       
       if (!firstName || !lastName || !email || !userType) {
         return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      // Check if user already exists
+      if (process.env.DATABASE_URL) {
+        const existingUser = await getUserByEmail(email);
+        if (existingUser) {
+          return res.status(400).json({ error: "User already exists with this email" });
+        }
+
+        // Create user in database if password provided
+        if (password) {
+          await createUser({
+            email,
+            password,
+            firstName,
+            lastName,
+            company,
+            userType,
+            monthlyExpenses,
+            currentTool,
+            marketingEmails: false
+          });
+        }
       }
 
       // Send confirmation email to user
@@ -41,10 +70,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Subscription signup endpoint
   app.post("/api/signup/subscription", async (req, res) => {
     try {
-      const { firstName, lastName, email, userType, planType, company, clientCount, referralSource } = req.body;
+      const { firstName, lastName, email, password, userType, planType, company, clientCount, phoneNumber, referralSource, marketingEmails } = req.body;
       
       if (!firstName || !lastName || !email || !userType || !planType) {
         return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      // Check if user already exists
+      if (process.env.DATABASE_URL) {
+        const existingUser = await getUserByEmail(email);
+        if (existingUser) {
+          return res.status(400).json({ error: "User already exists with this email" });
+        }
+
+        // Create user in database if password provided
+        if (password) {
+          await createUser({
+            email,
+            password,
+            firstName,
+            lastName,
+            company,
+            userType,
+            planType,
+            clientCount,
+            phoneNumber,
+            referralSource,
+            marketingEmails: marketingEmails || false
+          });
+        }
       }
 
       // Send confirmation email to user

@@ -45,6 +45,7 @@ export function SignupForm({ onClose }: SignupFormProps) {
       firstName: "",
       lastName: "",
       email: "",
+      password: "",
       company: "",
       currentTool: "",
       agreeToTerms: false,
@@ -55,25 +56,60 @@ export function SignupForm({ onClose }: SignupFormProps) {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/signup/trial', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      if (supabase) {
+        // Use Supabase if configured
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email: data.email,
+          password: data.password,
+          options: {
+            data: {
+              first_name: data.firstName,
+              last_name: data.lastName,
+            }
+          }
+        });
 
-      const result = await response.json();
+        if (authError) throw authError;
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Signup failed');
+        if (authData.user) {
+          // Create user profile
+          const { error: profileError } = await supabase
+            .from('user_profiles')
+            .insert([{
+              id: authData.user.id,
+              email: data.email,
+              first_name: data.firstName,
+              last_name: data.lastName,
+              company: data.company || null,
+              user_type: data.userType,
+              monthly_expenses: data.monthlyExpenses,
+              current_tool: data.currentTool || null,
+              marketing_emails: false
+            }]);
+
+          if (profileError) throw profileError;
+        }
+      } else {
+        // Fall back to existing API endpoint
+        const response = await fetch('/api/signup/trial', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Signup failed');
+        }
       }
 
-      console.log("Free trial signup successful:", result);
       setIsSubmitted(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Free trial signup error:", error);
-      // You might want to show an error message to the user here
+      alert(error.message || 'Signup failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -157,6 +193,19 @@ export function SignupForm({ onClose }: SignupFormProps) {
               />
               {form.formState.errors.email && (
                 <p className="text-sm text-red-600">{form.formState.errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                {...form.register("password")}
+                className={form.formState.errors.password ? "border-red-500" : ""}
+              />
+              {form.formState.errors.password && (
+                <p className="text-sm text-red-600">{form.formState.errors.password.message}</p>
               )}
             </div>
 

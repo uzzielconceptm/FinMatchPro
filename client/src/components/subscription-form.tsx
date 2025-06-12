@@ -229,6 +229,19 @@ export function SubscriptionForm({ onClose }: SubscriptionFormProps) {
               )}
             </div>
 
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                {...form.register("password")}
+                className={form.formState.errors.password ? "border-red-500" : ""}
+              />
+              {form.formState.errors.password && (
+                <p className="text-sm text-red-600">{form.formState.errors.password.message}</p>
+              )}
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="company">Company/Business Name</Label>

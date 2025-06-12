@@ -2,8 +2,8 @@ import { Pool, Client } from 'pg';
 import bcrypt from 'bcryptjs';
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:NfctNzIVFLIUBkuJXcDACcxgXjYoAoPz@shuttle.proxy.rlwy.net:56106/railway',
+  ssl: { rejectUnauthorized: false },
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
